@@ -1,12 +1,14 @@
 {
   "name": "instanews-app",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A news app",
   "main": "index.js",
-  "dependencies": {
-    "gulp": "^4.0.2"
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-terser": "^1.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
