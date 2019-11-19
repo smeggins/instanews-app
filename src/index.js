@@ -1,13 +1,54 @@
-const a = 1;
-const b = 2;
-let c = a+b;
+$(function() {
+    console.log( `work you miserable piece of slag!` );
 
-let d =c-a+b
+    if (constants.main === 1) {
+    let logoimg = constants.logo;
+    const mainContainer = $(`#INWrapper`);
+    let header = $(`header`);
+    let footer = $(`footer`);
 
-let test = document.getElementById('test'  )
-test.innerhtml = 'yo momma'
-document.appendChild(test)
+    header.append(`<div id="logoContainer"></div>`);
+    $(`#logoContainer`).append(`<img id="logo"></img>`);
+    $(`#logo`).attr(`src`, logoimg);
 
-let z = 2
+    header.append(`<div id="selectorContainer"></div>`);
+    const selectorContainer = $(`#selectorContainer`);
+    selectorContainer.append(`<p>Choose a section:</p>`);
+    selectorContainer.append(`<select id="selector"></select>`);
+    
+    for (let i = 0; i < constants.sectionOptions.length; i++){
+        let selector = $(`#selector`);
+        selector.append(function() {
+            if (constants.sectionOptions[i] === `Sections`){
+                return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
+                .attr(`value`, ``)
+                .attr(`disabled`, `true`)
+                .attr(`selected`, `selected`)
+            }
+            else{
+            return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
+                .attr(`value`, `${constants.sectionOptions[i]}`)
+            }
+        })
 
-let r = 'yo mama'
+    }
+
+    footer.append(`<p>@ Copyright 2016 INSTANEWS</p>`)
+
+
+
+    }
+
+
+
+
+
+
+});
+const constants = {
+    logo: `../assets/images/nyt-logo.svg`,
+    main: 1,
+    sectionOptions: [`Sections`, `world`, `U.S.`, `Politics`, `N.Y.`, `Business`, `Opinion`, `Tech`, `Science`, `Health`, `Sports`, `Arts`, `Books`, `Style`, `Food`, `Travel`, `Magazine`, `T Magazine`, `Real Estate`, `Video`]
+}
+
+

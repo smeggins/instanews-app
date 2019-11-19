@@ -1,6 +1,6 @@
 {
   "name": "instanews-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A news app",
   "main": "index.js",
   "dependencies": {},
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/smeggins/instanews-app.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Phillip Chadwick",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/smeggins/instanews-app/issues"
