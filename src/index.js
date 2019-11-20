@@ -33,7 +33,7 @@ $(function() {
 
     }
 
-    footer.append(`<p>@ Copyright 2016 INSTANEWS</p>`)
+    footer.append(`<p><i class="icofont-copyright"></i> Copyright 2016 INSTANEWS</p>`)
 
 
 
