@@ -1,0 +1,17 @@
+$logoHW: 30vh;
+$tabletWidth: 600px;
+$desktopWidth: 1250px;
+$footerText: #c2c2c2;
+$baseFontSize: 2.5vh;
+
+@mixin tablet {
+    @media screen and (min-width: $tabletWidth) {
+        @content;
+    };
+};
+
+@mixin desktop {
+    @media screen and (min-width: $desktopWidth) {
+        @content;
+    };
+};

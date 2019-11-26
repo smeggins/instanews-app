@@ -1,0 +1,75 @@
+@import 'Initializer.scss';
+@import 'variables.scss';
+ /* Main CSS */
+
+html {
+    font-size: 16px;
+    color: #ffffff;
+    font-style: 'Open Sans Light';
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: black;
+}
+
+header {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: black;
+
+    @include tablet {
+        flex-direction: row;
+    }
+}
+
+#logoContainer {
+    @include tablet {
+        margin-top: 15vh;
+    }
+}
+
+#logo {
+    margin-top: 15vh;
+    width: $logoHW;
+    height: $logoHW;
+}
+
+#selectorContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 2.5vh;
+    margin-top: 2vh;
+
+    @include tablet {
+        margin-top: 25vh;
+    }
+}
+
+#selector {
+    width: 80px;
+    height: 20px;
+    background-color: white;
+    margin-top: 2vh;
+
+}
+
+footer {
+    margin-top: 25vh;
+    color: $footerText;
+    font-size: 2.5vh;
+
+    @include tablet {
+        margin-top: 35vh;
+    }
+}

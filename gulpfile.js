@@ -1,8 +1,23 @@
+/* eslint-disable no-undef */
+/* eslint-disable quotes */
 const gulp = require('gulp');
-const terser = require('gulp-terser'),
+      terser = require('gulp-terser');
       rename = require('gulp-rename');
       browserSync = require('browser-sync').create();
       eslint = require('gulp-eslint');
+const sass = require("gulp-sass");
+      autoprefixer = require("gulp-autoprefixer"),
+      cssnano = require("gulp-cssnano"),
+
+gulp.task('sass', function() {
+    return gulp
+        .src('./sass/style.scss')
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(cssnano())
+        .pipe(rename({extname: '.min.css'}))
+        .pipe(gulp.dest("./build/css"));
+});
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -31,6 +46,7 @@ gulp.task('watch', function() {
     gulp.watch('./src/*.js', gulp.parallel('scripts', 'reload'));
     gulp.watch('index.html', gulp.parallel('reload'))
     gulp.watch('./styles/style.css', gulp.parallel('reload'))
+    gulp.watch(`./sass/*.scss`, gulp.parallel('reload'))
 
 });
 
