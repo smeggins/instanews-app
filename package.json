@@ -1,6 +1,6 @@
 {
   "name": "instanews-app",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "A news app",
   "main": "index.js",
   "dependencies": {

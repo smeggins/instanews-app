@@ -31,6 +31,10 @@ header {
     }
 }
 
+main {
+    width: 100%;
+}
+
 #logoContainer {
     @include tablet {
         margin-top: 15vh;
@@ -54,6 +58,34 @@ header {
     @include tablet {
         margin-top: 25vh;
     }
+}
+
+#selectionContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 1fr);
+    width: 100%;
+    margin-top: 10vh;
+}
+
+a {
+    position: relative;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.shadowBox {
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    background-color: rgba($color: #000000, $alpha: .4);
+    z-index: 5;
+    bottom: 0%;
+    font-size: 4vw;
 }
 
 #selector {

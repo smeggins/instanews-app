@@ -45,8 +45,8 @@ gulp.task('reload', function(done) {
 gulp.task('watch', function() {
     gulp.watch('./src/*.js', gulp.parallel('scripts', 'reload'));
     gulp.watch('index.html', gulp.parallel('reload'))
-    gulp.watch('./styles/style.css', gulp.parallel('reload'))
-    gulp.watch(`./sass/*.scss`, gulp.parallel('reload'))
+    gulp.watch(`./sass/*.scss`, gulp.parallel('sass'))
+    gulp.watch('./build/css/style.min.css', gulp.parallel('reload'))
 
 });
 

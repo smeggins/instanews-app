@@ -39,28 +39,22 @@ $(function() {
                 method: `GET`,
                 url: `https://api.nytimes.com/svc/topstories/v2/${value}.json?api-key=${constants.APIKey}`,
             }).done(function(data) {
-                console.log(x)
-                // data.results.forEach(function(x) { 
-                //     let link = x.title;
-                //     let description = x.abstract;
-                //     let image = x.multimedia[0]
-
-                //     for (let i = 0; i < 12; i++) {
-                //         apiStorage = `article${i}`
-                //         apiStorage.article[i] = [description, image, link]
-                //         let shortcut = apiStorage.articles;
-                //         this.shortcut = ``
-                        
-                //         $(`#selectionContainer`).append(function() {
-                //             return $(`<a></a>`)
-                //                 .hide()
-                //                 .attr(`href`, `${link}`)
-                //                 .append(`<img href=${imglink}>${LINKTEXT}</img>`)
-                //                 .slideDown()
-                //         })
-                //     }
-
+                // console.log(data)
+                $(`a`).slideUp()
+                $(`#selectionContainer`).html('')
+                data.results
+                    .slice(0, 12)
+                    .forEach(function(x, i) { 
+                        console.log(x)
+                   const link = x.short_url;
+                   const image = x.multimedia[3].url
+                   const description = x.abstract;
+                
+                    apiStorage[`article${i}`] = {link, image, description}
+                    constants.generateContent(link, image, description)
                 })
+                $(`a`).slideDown()
+                console.log(apiStorage)
             })
         })
     
@@ -73,6 +67,17 @@ const constants = {
     main: 1,
     sectionOptions: [`Sections`, `arts`, `automobiles`, `books`, `business`, `fashion`, `food`, `health`, `home`, `insider`, `magazine`, `movies`, `national`, `obituaries`, `opinion`, `politics`, `realestate`, `science`, `sports`, `sundayreview`, `technology`, `theater`, `travel`, `upshot`, `world`],
     APIKey: `ufgUeOkNrPXMBGtACisXTApujh2aM5EG`,
+
+    generateContent(link, image, description) {
+        $(`#selectionContainer`).append(function() {
+            return $(`<a></a>`)
+                .hide()
+                .attr(`href`, `${link}`)
+                .attr(`class`, `grid-item`)
+                .append(`<img src=${image}></img>`)
+                .append(`<div class='shadowBox'>${description}</div>`)
+        })
+    }
     
 };
 
