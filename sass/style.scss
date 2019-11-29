@@ -36,15 +36,15 @@ main {
 }
 
 #logoContainer {
+    margin-top: 5rem;
     @include tablet {
-        margin-top: 15vh;
+        margin-top: 15vw;
     }
 }
 
 #logo {
-    margin-top: 15vh;
-    width: $logoHW;
-    height: $logoHW;
+    width: $logoW;
+    height: $logoW;
 }
 
 #selectorContainer {
@@ -52,11 +52,11 @@ main {
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    font-size: 2.5vh;
-    margin-top: 2vh;
+    font-size: 4vw;
+    margin-top: 3vw;
 
     @include tablet {
-        margin-top: 25vh;
+        margin-top: 25vw;
     }
 }
 
@@ -65,7 +65,7 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(12, 1fr);
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 10vw;
 }
 
 a {
@@ -89,19 +89,19 @@ img {
 }
 
 #selector {
-    width: 80px;
-    height: 20px;
+    width: 25vw;
+    height: 5vw;
     background-color: white;
-    margin-top: 2vh;
+    margin-top: 4vw;
 
 }
 
 footer {
-    margin-top: 25vh;
+    margin: 11vw auto;
     color: $footerText;
-    font-size: 2.5vh;
+    font-size: 4vw;
 
     @include tablet {
-        margin-top: 35vh;
+        margin-top: 35vw;
     }
 }

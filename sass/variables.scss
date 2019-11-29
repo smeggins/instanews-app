@@ -1,8 +1,8 @@
-$logoHW: 30vh;
+$logoW: 40vw;
 $tabletWidth: 600px;
 $desktopWidth: 1250px;
 $footerText: #c2c2c2;
-$baseFontSize: 2.5vh;
+$baseFontSize: 2.5vw;
 
 @mixin tablet {
     @media screen and (min-width: $tabletWidth) {
