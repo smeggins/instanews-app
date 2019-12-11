@@ -5,7 +5,6 @@
 html {
     font-size: 16px;
     color: #ffffff;
-    font-style: 'Open Sans Light';
 }
 
 body {
@@ -15,6 +14,12 @@ body {
     justify-content: flex-start;
     height: 100%;
     background-color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+
+    @include desktop {
+        align-items: unset;
+    };
 }
 
 header {
@@ -28,6 +33,24 @@ header {
 
     @include tablet {
         flex-direction: row;
+        margin-top: 15vw;
+    };
+
+    @include desktop {
+        margin-top: 0vw;
+    }
+}
+
+#headerTablet {
+    
+    @include tablet {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 0vw;
+    }
+
+    @include desktop {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
@@ -35,30 +58,110 @@ main {
     width: 100%;
 }
 
-#logoContainer {
-    margin-top: 5rem;
+.logoContainer {
+    margin-top: 10vw;
+    grid-column: 1;
+    grid-row: 1;
+    width: $logo;
+    height: $logo;
+
     @include tablet {
-        margin-top: 15vw;
+        width: $logo*.75;
+        height: $logo*.75;
+    }
+
+    @include desktop {
+        width: $logo*.50;
+        height: $logo*.50;  
+        margin-left: 3vw;
     }
 }
 
-#logo {
-    width: $logoW;
-    height: $logoW;
+#logoContainerTablet {
+
+    @include tablet {
+        width: ($logo*.25);
+        height: ($logo*.25);
+        margin: 4vw auto 0rem auto;
+        align-content: center;
+    }
+
+    @include desktop {
+        margin: 4vw 0vw 0vw 3vw;
+        width: ($logo*.15);
+        height: ($logo*.15);
+    }
 }
 
-#selectorContainer {
+.logo {
+    width: 100%;
+    height: 100%;
+}
+
+.selectorContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
     font-size: 4vw;
     margin-top: 3vw;
+    grid-column: 2;
 
     @include tablet {
-        margin-top: 25vw;
+        margin-top: 13vw;
+        font-size: 3vw;
+        align-items: unset;
+    };
+
+    @include desktop {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 1.5vw;
+        margin-left: 5vw;
     }
 }
+
+#selectorContainerTablet {
+
+    @include tablet {
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    @include desktop {
+        align-items: unset;
+        // font-size: 2vw;
+        margin-left: 15vw;
+    }
+}
+
+.selector {
+    width: $selectorW;
+    height: $selectorH;
+    background-color: white;
+    margin-top: 4vw;
+    font-size: 3vw;
+
+    @include tablet {
+        width: $selectorW*.6;
+        height: $selectorH*.7;
+        margin-top: 2vw;
+        font-size: 2vw;
+    };
+
+    @include desktop {
+        font-size: 1.4vw;
+        width: $selectorW*.37;
+        height: $selectorH*.37;
+    }
+}
+
+// #selectorDesktopSelected {
+//     @include desktop {
+//         width: $selectorW*.4;
+//         height: $selectorH*.5;
+//     }
+// }
 
 #selectionContainer {
     display: grid;
@@ -66,6 +169,33 @@ main {
     grid-template-rows: repeat(12, 1fr);
     width: 100%;
     margin-top: 10vw;
+
+    @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin-top: 4vw;
+    };
+
+    @include desktop {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+.grid-item {
+    height: $gridItem;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include tablet {
+        height: $gridItem*.8;
+    }
+
+    @include desktop {
+        height: $gridItem*.5;
+    }
 }
 
 a {
@@ -80,20 +210,23 @@ img {
 
 .shadowBox {
     position: absolute;
-    width: 100%;
-    height: 25%;
+    height: auto;
     background-color: rgba($color: #000000, $alpha: .4);
     z-index: 5;
     bottom: 0%;
     font-size: 4vw;
+
+    @include tablet {
+        font-size: 2.4vw;
+    }
+
+    @include desktop {
+        font-size: 1.5vw;
+    }
 }
 
-#selector {
-    width: 25vw;
-    height: 5vw;
-    background-color: white;
-    margin-top: 4vw;
-
+.article {
+    padding: 1vw;
 }
 
 footer {
@@ -102,6 +235,19 @@ footer {
     font-size: 4vw;
 
     @include tablet {
-        margin-top: 35vw;
+        margin-top: 15vw;
+        font-size: 2.5vw;
+    }
+
+    @include desktop {
+        margin: 11vw 0vw 11vw 3vw;
+        font-size: 1.3vw;
+    }
+}
+
+#footerTablet {
+
+    @include tablet {
+        margin: 5vw auto;
     }
 }

@@ -1,11 +1,20 @@
-$logoW: 40vw;
+$logo: 40vw;
 $tabletWidth: 600px;
 $desktopWidth: 1250px;
 $footerText: #c2c2c2;
 $baseFontSize: 2.5vw;
+$gridItem: 65vw;
+$selectorW: 25vw;
+$selectorH: 5vw;
 
 @mixin tablet {
     @media screen and (min-width: $tabletWidth) {
+        @content;
+    };
+};
+
+@mixin tabletOnSelect {
+    @media screen and (min-width: $tabletWidth) and (max-width: $desktopWidth - 1) {
         @content;
     };
 };
