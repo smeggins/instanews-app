@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html lang='english'>
+<html lang="en-US">
     <head>
+        <title>Instanews</title>
         <meta charset="UTF-8">
+        <meta name="author" content="Phillip Chadwick">
+        <meta name="description" content="Instanews generates relavent, up-to-date, news coverage from new york times. 
+        The following categories are used:arts, automobiles, books, business, fashion, 
+        food, health, home, insider, magazine, movies, national, obituaries, opinion, 
+        politics, realestate, science, sports, sundayreview, technology, theater, 
+        travel, upshot, world,">
         <meta name="viewport" content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" type="text/css" href="./build/css/style.min.css">
         <link rel="stylesheet" href="./assets/fonts/icofont/icofont.min.css">
@@ -15,7 +22,9 @@
 
         </header>
         <main>
-            <div id="selectionContainer"></div>
+            <div class="articlesContainer">
+                <img src="./assets/images/ajax-loader.gif" alt="Loading..." class="loader">
+            </div>
         </main>
         <div id="INWrapper mobileIntro"></div>
         <footer></footer>

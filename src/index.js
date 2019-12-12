@@ -3,6 +3,8 @@ $(function() {
     let logoimg = constants.logo;
     let footer = $(`footer`);
 
+    $(`.loader`).hide();
+
     $(`.logoContainer`).append(function () {
        return  $(`<img class="logo" id="logo"></img>`)
                     .attr(`src`, logoimg)
@@ -35,13 +37,14 @@ $(function() {
     
         $(`.selector`).on(`change`, function() {
             let value = this.value
+            $(`.loader`).show();
             $.ajax ({
                 method: `GET`,
                 url: `https://api.nytimes.com/svc/topstories/v2/${value}.json?api-key=${constants.APIKey}`,
             }).done(function(data) {
                 // console.log(data)
                 $(`a`).slideUp()
-                $(`#selectionContainer`).html(``)
+                $(`.articlesContainer`).html(``)
                 data.results
                     .slice(0, 12)
                     .forEach(function(x, i) { 
@@ -74,14 +77,20 @@ $(function() {
                     constants.generateContent(link, image, description)
                     })
                     $(`a`).slideDown()
-                    $(`header`).attr(`id`, `headerTablet`)
-                    $(`.logoContainer`).attr(`id`, `logoContainerTablet`)
-                    $(`.selectorContainer`).attr(`id`, `selectorContainerTablet`)
+                    $(`header`).attr(`id`, `headerSelected`)
+                    $(`.logoContainer`).attr(`id`, `logoContainerSelected`)
+                    $(`.selectorContainer`).attr(`id`, `selectorContainerSelected`)
                     $(`.selector`).attr(`id`, `selectorDesktopSelected`)
-                    $(`footer`).attr(`id`, `footerTablet`)
+                    $(`footer`).attr(`id`, `footerSelected`)
                     
 
                 // console.log(apiStorage)
+            })
+            .fail(function() {
+                constants.onFail()
+            })
+            .always(function() {
+                $(`.loader`).hide();
             })
         })
     
@@ -96,19 +105,25 @@ const constants = {
     APIKey: `ufgUeOkNrPXMBGtACisXTApujh2aM5EG`,
 
     generateContent(link, image, description) {
-        $(`#selectionContainer`).append(function() {
+        $(`.articlesContainer`).append(function() {
             return $(`<a></a>`)
                 .hide()
                 .attr(`href`, `${link}`)
                 .attr(`class`, `grid-item`)
                 .attr(`style`, `background-image: url('${image}')`)
-                // .append(`<p class='shadowBox'>${description}</p>`)
                 .append(function () {
                     return $(`<div class='shadowBox'></div>`)
                     .append(`<p class='article'>${description}</p>`)
                 })
         })
-    }
+    },
+
+    onFail() {
+        $(`.articlesContainer`).append(function() {
+            return $(`<p>Could not generate content. Please try again later. If the issue persists, contact the website administrator.</p>`)
+                .attr(`class`, `failToLoad`)
+        })
+    },
     
 };
 
