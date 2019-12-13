@@ -1,20 +1,29 @@
 $logo: 40vw;
-$tabletWidth: 600px;
-$desktopWidth: 1250px;
-$footerText: #c2c2c2;
-$baseFontSize: 2.5vw;
-$gridItem: 65vw;
 $selectorW: 25vw;
 $selectorH: 5vw;
 
-@mixin tablet {
-    @media screen and (min-width: $tabletWidth) {
-        @content;
-    };
+$gridItem: 65vw;
+
+$baseFontColor: #ffffff;
+$footerColor: #c2c2c2;
+$baseFontSize: 16px;
+$selectorFont: 3vw;
+$shadowboxFont: 4vw;
+$CommonFontSize: 4vw;
+$CommonFontSizeTablet: 3vw;
+$CommonFontSizeDesktop: 1.5vw;
+
+@mixin flexCenterColumn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 };
 
-@mixin tabletOnSelect {
-    @media screen and (min-width: $tabletWidth) and (max-width: $desktopWidth - 1) {
+$tabletWidth: 600px;
+$desktopWidth: 1250px;
+
+@mixin tablet {
+    @media screen and (min-width: $tabletWidth) {
         @content;
     };
 };

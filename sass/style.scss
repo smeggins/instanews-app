@@ -3,30 +3,24 @@
  /* Main CSS */
 
 html {
-    font-size: 16px;
-    color: #ffffff;
-}
+    font-size: $baseFontSize;
+    color: $baseFontColor;
+};
 
 body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include flexCenterColumn;
     justify-content: flex-start;
     height: 100%;
     background-color: black;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Open-Sans-Light', sans-serif;
 
     @include desktop {
         align-items: unset;
     };
-}
+};
 
 header {
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include flexCenterColumn;
     justify-content: flex-start;
     height: 100%;
     background-color: black;
@@ -38,8 +32,8 @@ header {
 
     @include desktop {
         margin-top: 0vw;
-    }
-}
+    };
+};
 
 #headerSelected {
 
@@ -47,19 +41,13 @@ header {
     
     @include tablet {
         width: 100%;
-        // display: grid;
-        // grid-template-columns: repeat(3, 1fr);
         margin-top: 0vw;
-    }
-
-    @include desktop {
-        // grid-template-columns: repeat(1, 1fr);
-    }
-}
+    };
+};
 
 main {
     width: 100%;
-}
+};
 
 .logoContainer {
     margin-top: 10vw;
@@ -72,14 +60,14 @@ main {
         margin-top: 14vw;
         width: $logo*.75;
         height: $logo*.75;
-    }
+    };
 
     @include desktop {
         width: $logo*.50;
         height: $logo*.50;  
         margin-left: 3vw;
-    }
-}
+    };
+};
 
 #logoContainerSelected {
 
@@ -90,42 +78,40 @@ main {
         height: ($logo*.25);
         margin: 4vw 0vw 0vw 24vw;
         align-content: center;
-    }
+    };
 
     @include desktop {
         margin: 4vw 0vw 0vw 3vw;
         width: ($logo*.15);
         height: ($logo*.15);
-    }
-}
+    };
+};
 
 .logo {
     width: 100%;
     height: 100%;
-}
+};
 
 .selectorContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include flexCenterColumn;
     justify-content: space-evenly;
-    font-size: 4vw;
+    font-size: $CommonFontSize;
     margin-top: 3vw;
     grid-column: 2;
 
     @include tablet {
         margin-top: 13vw;
-        font-size: 3vw;
+        font-size: $CommonFontSizeTablet;
         align-items: unset;
     };
 
     @include desktop {
         grid-column: 1;
         grid-row: 1;
-        font-size: 1.5vw;
+        font-size: $CommonFontSizeDesktop;
         margin-left: 5vw;
-    }
-}
+    };
+};
 
 #selectorContainerSelected {
 
@@ -136,35 +122,35 @@ main {
         align-items: unset;
         margin-left: 9vw;
         margin-top: 2.5vw;
-    }
+    };
 
     @include desktop {
         font-size: 1.4vw;
         align-items: unset;
         margin-left: 7.5vw;
-    }
-}
+    };
+};
 
 .selector {
     width: $selectorW;
     height: $selectorH;
     background-color: white;
     margin-top: 4vw;
-    font-size: 3vw;
+    font-size: $selectorFont;
 
     @include tablet {
         width: $selectorW*.6;
         height: $selectorH*.7;
         margin-top: 2vw;
-        font-size: 2vw;
+        font-size: $selectorFont*.67;
     };
 
     @include desktop {
-        font-size: 1.4vw;
+        font-size: $selectorFont*.47;
         width: $selectorW*.4;
         height: $selectorH*.37;
-    }
-}
+    };
+};
 
 #selectorSelected {
 
@@ -174,13 +160,14 @@ main {
         font-size: 1.5vw;
         width: $selectorW*.54;
         height: $selectorH*.5;
-    }
+    };
+
     @include desktop {
         font-size: 1vw;
         width: $selectorW*.32;
         height: $selectorH*.37;
-    }
-}
+    };
+};
 
 .articlesContainer {
     display: grid;
@@ -199,22 +186,15 @@ main {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
     };
-}
+};
 
 .failToLoad {
     margin: 10vw;
-}
+};
 
 .loader {
     grid-column: 2;
-    // width: 50%;
-    // height: 50%;
-
-    // @include tablet{
-    //     width: 100%;
-    //     height: 100%;
-    // }
-}
+};
 
 .grid-item {
     height: $gridItem;
@@ -225,26 +205,29 @@ main {
 
     @include tablet {
         height: $gridItem*.8;
-    }
+    };
 
     @include desktop {
         height: $gridItem*.5;
-    }
-}
+    };
+};
 
 a {
     position: relative;
     color: inherit;
-}
+};
 
 img {
     width: 100%;
     height: auto;
-}
+};
 
 a:hover > .shadowBox {
-    opacity: 1;
-}
+
+    @include desktop {
+        opacity: 1;
+    };
+};
 
 .shadowBox {
     position: absolute;
@@ -252,47 +235,48 @@ a:hover > .shadowBox {
     background-color: rgba($color: #000000, $alpha: .4);
     z-index: 5;
     bottom: 0%;
-    font-size: 4vw;
-    opacity: 0;
+    font-size: $CommonFontSize;
 
     @include tablet {
-        font-size: 2.4vw;
-    }
+        font-size: $CommonFontSizeTablet;
+    };
 
     @include desktop {
-        font-size: 1.5vw;
-    }
-}
+        font-size: $CommonFontSizeDesktop;
+        opacity: 0;
+    };
+};
 
 .article {
     padding: 1vw;
-}
+};
 
 footer {
     margin: 11vw auto;
-    color: $footerText;
-    font-size: 4vw;
+    color: $footerColor;
+    font-size: $CommonFontSize;
 
     @include tablet {
         margin-top: 15vw;
-        font-size: 2.5vw;
-    }
+        font-size: $CommonFontSizeTablet;
+    };
 
     @include desktop {
         margin: 8vw 0vw 5vw 3vw;
-        font-size: 1.3vw;
-    }
-}
+        font-size: $CommonFontSizeDesktop;
+    };
+};
 
 #footerSelected {
 
     transition: all 1s;
 
     @include tablet {
+        font-size: 2vw;
         margin: 5vw auto;
-    }
+    };
 
     @include desktop {
         margin: 5vw 0vw 5vw 3vw;
-    }
-}
+    };
+};

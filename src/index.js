@@ -32,9 +32,9 @@ $(function() {
                         bagOfHolding = constants.sectionOptions[i].replace(/\./g, ``);
                         return bagOfHolding
                 });
-            }
-        })
-    }
+            };
+        });
+    };
     
         $(`.selector`).on(`change`, function() {
             let value = this.value;
@@ -43,8 +43,8 @@ $(function() {
                 method: `GET`,
                 url: `https://api.nytimes.com/svc/topstories/v2/${value}.json?api-key=${constants.APIKey}`,
             }).done(function(data) {
-                $(`a`).slideUp()
-                $(`.articlesContainer`).html(``)
+                $(`a`).slideUp();
+                $(`.articlesContainer`).html(``);
                 data.results
                     .slice(0, 12)
                     .forEach(function(x, i) { 
@@ -62,43 +62,40 @@ $(function() {
                         image = x.multimedia[4].url
                     }
                     else {
-                        image = `../assets/images/nytimeslogo.svg`
+                        image = `./assets/images/nytimeslogo.svg`
                     }
                     if (x.abstract) {
                         description = x.abstract;
                     }
                     else {
                         description = `click on this image to read this article and more on the NYC Times website`
-                    }
+                    };
                    
-                
-                    apiStorage[`article${i}`] = {link, image, description}
-                    constants.generateContent(link, image, description)
-                    })
-                    $(`a`).slideDown()
-                    $(`header`).attr(`id`, `headerSelected`)
-                    $(`.logoContainer`).attr(`id`, `logoContainerSelected`)
-                    $(`.selectorContainer`).attr(`id`, `selectorContainerSelected`)
-                    $(`.selector`).attr(`id`, `selectorSelected`)
-                    $(`footer`).attr(`id`, `footerSelected`)
+                    apiStorage[`article${i}`] = {link, image, description};
+                    constants.generateContent(link, image, description);
+                    });
                     
-
-                // console.log(apiStorage)
+                $(`a`).slideDown();
+                $(`header`).attr(`id`, `headerSelected`);
+                $(`.logoContainer`).attr(`id`, `logoContainerSelected`);
+                $(`.selectorContainer`).attr(`id`, `selectorContainerSelected`);
+                $(`.selector`).attr(`id`, `selectorSelected`);
+                $(`footer`).attr(`id`, `footerSelected`);
             })
             .fail(function() {
-                constants.onFail()
+                constants.onFail();
             })
             .always(function() {
                 $(`.loader`).hide();
             })
-        })
-    
+        });
 
-    footer.append(`<p><i class="icofont-copyright"></i> Copyright 2016 INSTANEWS</p>`)
+    footer.append(`<p><i class="icofont-copyright"></i> Copyright 2016 INSTANEWS</p>`);
 
 });
+
 const constants = {
-    logo: `../assets/images/nyt-logo.svg`,
+    logo: `./assets/images/nyt-logo.svg`,
     main: 1,
     sectionOptions: [`Sections`, `arts`, `automobiles`, `books`, `business`, `fashion`, `food`, `health`, `home`, `insider`, `magazine`, `movies`, `national`, `obituaries`, `opinion`, `politics`, `realestate`, `science`, `sports`, `sundayreview`, `technology`, `theater`, `travel`, `upshot`, `world`],
     APIKey: `ufgUeOkNrPXMBGtACisXTApujh2aM5EG`,
@@ -126,6 +123,6 @@ const constants = {
     
 };
 
-let apiStorage = {}
+let apiStorage = {};
 
 
