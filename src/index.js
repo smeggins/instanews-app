@@ -4,52 +4,51 @@ $(function() {
     let footer = $(`footer`);
 
     $(`.loader`).hide();
-
-    $(`.logoContainer`).append(function () {
+    $(`.logoContainer`).append(function() {
        return  $(`<img class="logo" id="logo"></img>`)
                     .attr(`src`, logoimg)
-    })
+    });
 
     const selectorContainer = $(`.selectorContainer`);
     selectorContainer.append(`<p>Choose a section:</p>`);
     selectorContainer.append(`<select class="selector"></select>`);
     
-    for (let i = 0; i < constants.sectionOptions.length; i++){
+    for (let i = 0; i < constants.sectionOptions.length; i++) {
         let selector = $(`.selector`);
         let bagOfHolding;
         selector.append(function() {
-            if (constants.sectionOptions[i] === `Sections`){
+            
+            if (constants.sectionOptions[i] === `Sections`) {
                 return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
                 .attr(`value`, ``)
                 .attr(`disabled`, `true`)
                 .attr(`selected`, `selected`)
             }
-            else{
-            return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
-                .attr(`value`, `${constants.sectionOptions[i]}`)
-                .attr(`id`, function() {
-                    bagOfHolding = constants.sectionOptions[i].replace(/\./g, ``);
-                    return bagOfHolding
-                })
+
+            else {
+                return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
+                    .attr(`value`, `${constants.sectionOptions[i]}`)
+                    .attr(`id`, function() {
+                        bagOfHolding = constants.sectionOptions[i].replace(/\./g, ``);
+                        return bagOfHolding
+                });
             }
         })
     }
     
         $(`.selector`).on(`change`, function() {
-            let value = this.value
+            let value = this.value;
             $(`.loader`).show();
             $.ajax ({
                 method: `GET`,
                 url: `https://api.nytimes.com/svc/topstories/v2/${value}.json?api-key=${constants.APIKey}`,
             }).done(function(data) {
-                // console.log(data)
                 $(`a`).slideUp()
                 $(`.articlesContainer`).html(``)
                 data.results
                     .slice(0, 12)
                     .forEach(function(x, i) { 
                         let link, image, description;
-                        // console.log(x)
                     if (x.short_url) {
                         link = x.short_url;
                     }
@@ -80,7 +79,7 @@ $(function() {
                     $(`header`).attr(`id`, `headerSelected`)
                     $(`.logoContainer`).attr(`id`, `logoContainerSelected`)
                     $(`.selectorContainer`).attr(`id`, `selectorContainerSelected`)
-                    $(`.selector`).attr(`id`, `selectorDesktopSelected`)
+                    $(`.selector`).attr(`id`, `selectorSelected`)
                     $(`footer`).attr(`id`, `footerSelected`)
                     
 

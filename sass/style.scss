@@ -46,8 +46,9 @@ header {
     transition: all 1s;
     
     @include tablet {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        // display: grid;
+        // grid-template-columns: repeat(3, 1fr);
         margin-top: 0vw;
     }
 
@@ -68,6 +69,7 @@ main {
     height: $logo;
 
     @include tablet {
+        margin-top: 14vw;
         width: $logo*.75;
         height: $logo*.75;
     }
@@ -86,7 +88,7 @@ main {
     @include tablet {
         width: ($logo*.25);
         height: ($logo*.25);
-        margin: 4vw auto 0rem auto;
+        margin: 4vw 0vw 0vw 24vw;
         align-content: center;
     }
 
@@ -127,14 +129,19 @@ main {
 
 #selectorContainerSelected {
 
+    transition: all 1s;
+
     @include tablet {
+        font-size: 2vw;
         align-items: unset;
-        margin-top: 2rem;
+        margin-left: 9vw;
+        margin-top: 2.5vw;
     }
 
     @include desktop {
+        font-size: 1.4vw;
         align-items: unset;
-        margin-left: 15vw;
+        margin-left: 7.5vw;
     }
 }
 
@@ -159,12 +166,21 @@ main {
     }
 }
 
-// #selectorDesktopSelected {
-//     @include desktop {
-//         width: $selectorW*.4;
-//         height: $selectorH*.5;
-//     }
-// }
+#selectorSelected {
+
+    transition: all 1s;
+
+    @include tablet {
+        font-size: 1.5vw;
+        width: $selectorW*.54;
+        height: $selectorH*.5;
+    }
+    @include desktop {
+        font-size: 1vw;
+        width: $selectorW*.32;
+        height: $selectorH*.37;
+    }
+}
 
 .articlesContainer {
     display: grid;
@@ -227,8 +243,7 @@ img {
 }
 
 a:hover > .shadowBox {
-    opacity: 0;
-    background-color: violet;
+    opacity: 1;
 }
 
 .shadowBox {
@@ -238,7 +253,7 @@ a:hover > .shadowBox {
     z-index: 5;
     bottom: 0%;
     font-size: 4vw;
-    opacity: 1;
+    opacity: 0;
 
     @include tablet {
         font-size: 2.4vw;
@@ -264,7 +279,7 @@ footer {
     }
 
     @include desktop {
-        margin: 11vw 0vw 11vw 3vw;
+        margin: 8vw 0vw 5vw 3vw;
         font-size: 1.3vw;
     }
 }
@@ -275,5 +290,9 @@ footer {
 
     @include tablet {
         margin: 5vw auto;
+    }
+
+    @include desktop {
+        margin: 5vw 0vw 5vw 3vw;
     }
 }
