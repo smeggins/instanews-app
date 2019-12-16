@@ -1,37 +1,32 @@
 $(function() {
     
-    let logoimg = constants.logo;
-    let footer = $(`footer`);
+    const logoimg = constants.logo;
+    const footer = $(`footer`);
 
     $(`.loader`).hide();
     $(`.logoContainer`).append(function() {
-       return  $(`<img class="logo" id="logo"></img>`)
-                    .attr(`src`, logoimg)
+        return  $(`<img class="logo" alt=""></img>`)
+            .attr(`src`, logoimg)
     });
 
     const selectorContainer = $(`.selectorContainer`);
     selectorContainer.append(`<p>Choose a section:</p>`);
-    selectorContainer.append(`<select class="selector"></select>`);
+    selectorContainer.append(`<select class="selector" aria-label="Select a category of news"></select>`);
     
     for (let i = 0; i < constants.sectionOptions.length; i++) {
-        let selector = $(`.selector`);
-        let bagOfHolding;
+        const selector = $(`.selector`);
         selector.append(function() {
             
             if (constants.sectionOptions[i] === `Sections`) {
                 return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
-                .attr(`value`, ``)
-                .attr(`disabled`, `true`)
-                .attr(`selected`, `selected`)
+                    .attr(`value`, ``)
+                    .attr(`disabled`, `true`)
+                    .attr(`selected`, `selected`)
             }
 
             else {
                 return $(`<option class="option">${constants.sectionOptions[i]}</option>`)
                     .attr(`value`, `${constants.sectionOptions[i]}`)
-                    .attr(`id`, function() {
-                        bagOfHolding = constants.sectionOptions[i].replace(/\./g, ``);
-                        return bagOfHolding
-                });
             };
         });
     };
@@ -109,7 +104,7 @@ const constants = {
                 .attr(`style`, `background-image: url('${image}')`)
                 .append(function () {
                     return $(`<div class='shadowBox'></div>`)
-                    .append(`<p class='article'>${description}</p>`)
+                        .append(`<p class='article'>${description}</p>`)
                 })
         })
     },
@@ -119,7 +114,7 @@ const constants = {
             return $(`<p>Could not generate content. Please try again later. If the issue persists, contact the website administrator.</p>`)
                 .attr(`class`, `failToLoad`)
         })
-    },
+    }
     
 };
 

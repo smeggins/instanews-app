@@ -1,6 +1,6 @@
 @import 'Initializer.scss';
 @import 'variables.scss';
- /* Main CSS */
+@import 'fonts.scss';
 
 html {
     font-size: $baseFontSize;
@@ -236,6 +236,7 @@ a:hover > .shadowBox {
     z-index: 5;
     bottom: 0%;
     font-size: $CommonFontSize;
+    overflow: hidden;
 
     @include tablet {
         font-size: $CommonFontSizeTablet;
@@ -249,6 +250,7 @@ a:hover > .shadowBox {
 
 .article {
     padding: 1vw;
+    top: 0%;
 };
 
 footer {
@@ -277,6 +279,7 @@ footer {
     };
 
     @include desktop {
+        font-size: 1.4vw;
         margin: 5vw 0vw 5vw 3vw;
     };
 };
