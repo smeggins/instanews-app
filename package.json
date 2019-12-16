@@ -1,7 +1,7 @@
 {
   "name": "instanews-app",
-  "version": "0.0.5",
-  "description": "A news app",
+  "version": "1.0.0",
+  "description": "A popular news site that grabs all of the top storys provided by the NewYork Times",
   "main": "index.js",
   "dependencies": {
   },
